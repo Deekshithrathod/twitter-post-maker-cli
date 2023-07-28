@@ -1,0 +1,23 @@
+{
+  "name": "twitter-post-maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "puppeteer": "^20.9.0",
+    "sharp": "^0.32.4"
+  }
+}
