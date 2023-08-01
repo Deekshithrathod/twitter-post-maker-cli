@@ -44,5 +44,7 @@ yarn.lock
 build
 
 # base image local
-new_base.png
-twitter.png
+base.png
+
+# output images dir
+outputs
