@@ -11,16 +11,18 @@ const VIEW_PORTS = [
   { width: 1920, height: 1080 },
   // { width: 2560, height: 1080 },
 ];
-const BASE_IMG_PATH = `base.png`;
+const DEFAULT_BASE_IMG_PATH = `base.png`;
 
 async function createOpenGraphImage({
   title = TITLE_TEXT,
   outputPath = OUT_DIR,
   url = WEBSITE_URL,
+  baseImage = DEFAULT_BASE_IMG_PATH,
 }: {
   title: string;
   outputPath: string;
   url: string;
+  baseImage: string;
 }) {
   const outDirPath = path.join(__dirname, outputPath);
 
@@ -29,7 +31,7 @@ async function createOpenGraphImage({
   ).slice(0, 2);
 
   // reading the base image
-  const baseImage = await sharp(BASE_IMG_PATH).toBuffer();
+  const baseImgBuffer = await sharp(baseImage).toBuffer();
 
   const imagePromises = screenshotsBuffers.map(async (screenshotBuffer) => {
     const img = sharp(screenshotBuffer);
@@ -72,7 +74,7 @@ async function createOpenGraphImage({
     { input: textBuffer, top: 84, left: 432 },
   ];
 
-  const twitterPost = sharp(baseImage).composite(composites);
+  const twitterPost = sharp(baseImgBuffer).composite(composites);
 
   await twitterPost.toFile(path.join(outDirPath, "twitter_post.png"));
   console.log("Twitter Post image created successfully.");

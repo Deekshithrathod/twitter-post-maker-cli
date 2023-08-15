@@ -23,7 +23,12 @@ program
   .action(async () => {
     console.log(`starting Image generation`);
     const { url, title, author, baseImage, outDir } = program.opts();
-    await createOpenGraphImage({ title: title, url: url, outputPath: outDir });
+    await createOpenGraphImage({
+      title: title,
+      url: url,
+      outputPath: outDir,
+      baseImage,
+    });
   });
 
 program.parse(process.argv);
