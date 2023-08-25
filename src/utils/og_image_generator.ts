@@ -82,7 +82,7 @@ async function createOpenGraphImage({
   await sharp(await twitterPost.toBuffer())
     .resize({ width: 1200, height: 630, fit: sharp.fit.cover, position: "top" })
     .toFile(path.join(outDirPath, "og.png"));
-  console.log("OG:IMG open grapht image created successfully.");
+  console.log("OG:IMG open graph image created successfully.");
 }
 
 const createTextBuffer = (text: string) => {
